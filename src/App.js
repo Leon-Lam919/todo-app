@@ -6,8 +6,13 @@ class App extends Component{
     super();
     // variable that can be called again from render
     this.state = {
-      message: "Hello string"
+      message: "Hello string", 
+      newTodo: ""
     };
+  }
+
+  newTodoChanged(event){
+    console.log(event.target.value);
   }
 
   formSubmitted(event){
@@ -23,7 +28,7 @@ class App extends Component{
         {/* form and input for form */}
         <form onSubmit={this.formSubmitted}>
           <label for ="newTodo">New Todo</label>
-          <input id="newTodo" name = "newTodo"/>
+          <input onChange={this.newTodoChanged} id="newTodo" name = "newTodo"/>
           <button type="submit">Add Todo</button>
         </form>
       </div>
